@@ -530,7 +530,7 @@ func main() {
 func LambertW(z complex128) complex128 {
 	const (
 		epsilon = 1e-13 // precision
-		maxIter = 10000 // maximum iterations
+		maxIter = 1000 // maximum iterations
 	)
 
 	// Initial guess for Newton's method
@@ -574,15 +574,17 @@ func Tetration(base, z complex128) (fz complex128) {
 		}()
 	}
 	/////////////
+  /*
 	w := LambertW(cmplx.Log(base))
 	result := w
 	for n := 2; n <= int(cmplx.Abs(z)); n++ {
 		result = w * cmplx.Exp(w*(result-cmplx.Log(w)))
 	}
 	fz = result
+  */
 	/////////////
 	// This is z-partial iterate of natural exp
-	// fz = hexp(base, z)
+	fz = hexp(base, z)
 	// This is natural tetration (base e)
 	// fz = tet(z)
 	// This is natural arc tetration (base e)
